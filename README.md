@@ -1,6 +1,5 @@
 # React Native Rich Text Editor
 
-
 ## Scroll problem
 ###`usecontainer = {true}` Need to be placed in ScrolView and add a callback method `oncursorPosition` to handle scroll bar positioning, refer to Examples
 ```this.scrollRef.current.scrollTo({y: scrollY - 30, animated: true});```
@@ -135,7 +134,6 @@ This method registers a function that will get called whenver the cursor positio
   editorInitializedCallback={() => this.onEditorInitialized()}
 />
 ```
-
 
 ### Using Custom Fonts
 In order to use custom fonts, you need to use `initialCSSText` from the `editorStyle` prop.
