@@ -1,29 +1,6 @@
 # React Native Rich Text Editor
 
 
-[![NPM](https://img.shields.io/npm/v/react-native-pell-rich-editor.svg)](https://www.npmjs.com/package/react-native-pell-rich-editor)
-
-------
-
-
-> A fully functional Rich Text Editor for both Android and iOS (macOS and windows)?
-
-> If you want to use **flutter**, you can check [here](https://github.com/wxik/flutter-rich-editor) to add **flutter_rich_editor**
-
-```
-yarn add react-native-pell-rich-editor
-or
-npm i react-native-pell-rich-editor
-```
-
-Also, follow instructions [here](https://github.com/react-native-community/react-native-webview) to add the native `react-native-webview` dependency.
-
-* [Online Preview](https://wxik.github.io/react-native-rich-editor/web) （Some functions）
-* [Example](./examples) Hooks Rewrite
-
-![](readme/editor.jpg)
-
----
 ## Scroll problem
 ###`usecontainer = {true}` Need to be placed in ScrolView and add a callback method `oncursorPosition` to handle scroll bar positioning, refer to Examples
 ```this.scrollRef.current.scrollTo({y: scrollY - 30, animated: true});```
@@ -292,44 +269,3 @@ To define your own custom action:
 	customAction={this.handleCustomAction}
 />
 ```
-
-#### A Complete Example Using a Functional Component
-```javascript
-import React from "react";
-import { Text, Platform, KeyboardAvoidingView, SafeAreaView, ScrollView } from "react-native";
-import {actions, RichEditor, RichToolbar} from "react-native-pell-rich-editor";
-
-
-const handleHead = ({tintColor}) => <Text style={{color: tintColor}}>H1</Text>
-const TempScreen = () => {
-	const richText = React.useRef();
-	return (
-    <SafeAreaView>
-      <ScrollView>
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}	style={{ flex: 1 }}>
-          <Text>Description:</Text>
-          <RichEditor
-              ref={richText}
-              onChange={ descriptionText => {
-                  console.log("descriptionText:", descriptionText);
-              }}
-          />
-        </KeyboardAvoidingView>
-      </ScrollView>
-
-      <RichToolbar
-        editor={richText}
-        actions={[ actions.setBold, actions.setItalic, actions.setUnderline, actions.heading1 ]}
-        iconMap={{ [actions.heading1]: handleHead }}
-      />
-    </SafeAreaView>
-  );
-};
-
-export default TempScreen;
-```
-
----
-### Thank you very much for the support of [JetBrains](https://jb.gg/OpenSource)
-![https://jb.gg/OpenSource](readme/jetbrains.png)
-
